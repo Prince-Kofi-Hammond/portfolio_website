@@ -202,7 +202,7 @@ function loadAboutPage() {
 
 // Projects Page
 function loadProjectsPage() {
-  fetch('./src/data/projects.json')
+  fetch('data/projects.json')
     .then(response => response.json())
     .then(projects => {
       content.innerHTML = `
