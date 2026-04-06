@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Streak Tracker Application",
+    "description": "A productivity tool to track daily goals and maintain learning streaks. Features local storage persistence, daily validation, and custom goal setting.",
+    "icon": "fas fa-fire",
+    "category": "Productivity",
+    "link": "projects/streak-tracker.html"
+  },
+  {
+    "title": "Farm Management System",
+    "description": "Web application for managing farm operations, crop tracking, inventory management, and agricultural data analytics for smallholder farmers.",
+    "icon": "fas fa-seedling",
+    "category": "Agriculture Tech",
+    "link": "projects/farm-management.html"
+  },
+  {
+    "title": "Student Survey Form",
+    "description": "Responsive student survey form with input validation, multiple choice options, and feedback submission. FreeCodeCamp certification project.",
+    "icon": "fas fa-poll",
+    "category": "Web Development",
+    "link": "projects/survey-form.html"
+  },
+  {
+    "title": "Number Guessing Game",
+    "description": "Interactive number guessing game with attempt tracking, history logging, and win counter. Features smooth UI and game reset functionality.",
+    "icon": "fas fa-dice",
+    "category": "Games",
+    "link": "projects/number-guess.html"
+  },
+  {
+    "title": "Rock Paper Scissors Game",
+    "description": "Classic Rock Paper Scissors game with score tracking, computer opponent, and real-time result feedback. Built with vanilla JavaScript.",
+    "icon": "fas fa-hand-rock",
+    "category": "Games",
+    "link": "projects/rock-paper-scissors.html"
+  },
+  {
+    "title": "Tribute Page",
+    "description": "Responsive tribute page dedicated to Dr. Kwame Nkrumah, showcasing biography and historical significance. FreeCodeCamp certification project.",
+    "icon": "fas fa-user-tie",
+    "category": "Learning",
+    "link": "projects/tribute-page.html"
+  }
+]

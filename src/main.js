@@ -249,7 +249,7 @@ function loadProjectApp(index) {
 
 // Blogs Page
 function loadBlogsPage() {
-  fetch('./src/data/blogs.json')
+  fetch('/data/blogs.json')
     .then(response => response.json())
     .then(blogs => {
       content.innerHTML = `
