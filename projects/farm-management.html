@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Management System | Prince Hammond</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../src/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></head>
+<body class="light">
+    <header class="glass header">
+        <nav class="navbar">
+            <div class="nav-logo">
+                <h3><a href="../index.html" style="text-decoration: none; color: inherit;">PH</a></h3>
+            </div>
+            <a href="../index.html#projects" class="btn btn-primary">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2 class="page-title fade-in">Farm Management System</h2>
+        
+        <div class="glass fade-in" style="padding: 2rem;">
+            <h3 class="section-title">Crop Inventory</h3>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+                <thead>
+                    <tr style="border-bottom: 2px solid var(--primary);">
+                        <th style="padding: 1rem; text-align: left;">Crop</th>
+                        <th style="padding: 1rem; text-align: left;">Date Planted</th>
+                        <th style="padding: 1rem; text-align: left;">Expected Harvest</th>
+                        <th style="padding: 1rem; text-align: left;">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <td style="padding: 1rem;">Maize</td>
+                        <td style="padding: 1rem;">2026-03-10</td>
+                        <td style="padding: 1rem;">2026-07-20</td>
+                        <td style="padding: 1rem;"><span style="background: var(--success); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">Growing</span></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <td style="padding: 1rem;">Tomatoes</td>
+                        <td style="padding: 1rem;">2026-03-25</td>
+                        <td style="padding: 1rem;">2026-06-15</td>
+                        <td style="padding: 1rem;"><span style="background: var(--success); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">Growing</span></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <td style="padding: 1rem;">Peppers</td>
+                        <td style="padding: 1rem;">2026-04-01</td>
+                        <td style="padding: 1rem;">2026-07-01</td>
+                        <td style="padding: 1rem;"><span style="background: var(--success); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">Growing</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div style="margin-top: 2rem;">
+                <h4>Add New Crop</h4>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+                    <input type="text" id="crop-name" placeholder="Crop Name">
+                    <input type="date" id="plant-date">
+                    <button class="btn btn-primary" onclick="alert('Crop added successfully!')">Add Crop</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

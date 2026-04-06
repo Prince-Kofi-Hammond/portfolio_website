@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Survey Form | Prince Hammond</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../src/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></head>
+<body class="light">
+    <header class="glass header">
+        <nav class="navbar">
+            <div class="nav-logo">
+                <h3><a href="../index.html" style="text-decoration: none; color: inherit;">PH</a></h3>
+            </div>
+            <a href="../index.html#projects" class="btn btn-primary">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2 class="page-title fade-in">Student Survey Form</h2>
+        
+        <div class="glass fade-in" style="padding: 2rem; max-width: 600px; margin: 0 auto;">
+            <form id="survey-form" style="display: flex; flex-direction: column; gap: 1rem;">
+                <div>
+                    <label style="display: block; margin-bottom: 0.5rem;">Full Name</label>
+                    <input type="text" style="width: 100%;" placeholder="Enter your name">
+                </div>
+                
+                <div>
+                    <label style="display: block; margin-bottom: 0.5rem;">Email</label>
+                    <input type="email" style="width: 100%;" placeholder="Enter your email">
+                </div>
+                
+                <div>
+                    <label style="display: block; margin-bottom: 0.5rem;">Which best describes you?</label>
+                    <select style="width: 100%; padding: 0.8rem; border-radius: 8px;">
+                        <option>Student</option>
+                        <option>Professional</option>
+                        <option>Freelancer</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label style="display: block; margin-bottom: 0.5rem;">How would you rate your programming skills?</label>
+                    <div style="display: flex; gap: 1rem;">
+                        <label><input type="radio" name="skill"> Beginner</label>
+                        <label><input type="radio" name="skill"> Intermediate</label>
+                        <label><input type="radio" name="skill"> Advanced</label>
+                    </div>
+                </div>
+                
+                <div>
+                    <label style="display: block; margin-bottom: 0.5rem;">Languages you know (check all):</label>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                        <label><input type="checkbox"> JavaScript</label>
+                        <label><input type="checkbox"> Python</label>
+                        <label><input type="checkbox"> C++</label>
+                        <label><input type="checkbox"> Java</label>
+                        <label><input type="checkbox"> PHP</label>
+                        <label><input type="checkbox"> Other</label>
+                    </div>
+                </div>
+                
+                <div>
+                    <label style="display: block; margin-bottom: 0.5rem;">Any comments or suggestions?</label>
+                    <textarea style="width: 100%; min-height: 100px; padding: 0.8rem; border-radius: 8px;" placeholder="Enter your comments here..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%;" onclick="event.preventDefault(); alert('Thank you for completing the survey!')">
+                    Submit Survey
+                </button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streak Tracker | Prince Hammond</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../src/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></head>
+<body class="light">
+    <header class="glass header">
+        <nav class="navbar">
+            <div class="nav-logo">
+                <h3><a href="../index.html" style="text-decoration: none; color: inherit;">PH</a></h3>
+            </div>
+            <a href="../index.html#projects" class="btn btn-primary">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2 class="page-title fade-in">Streak Tracker</h2>
+        <div class="planner-container glass fade-in">
+            <div class="streak-display">
+                <h3>Current Streak</h3>
+                <div class="streak-number" id="streak-display">0</div>
+                <p style="opacity: 0.8;">days</p>
+            </div>
+            <div style="text-align: center; margin: 1rem 0;">
+                <h4>Current Goal: <span id="current-goal">Daily Learning</span></h4>
+            </div>
+            <div class="streak-controls">
+                <input type="text" id="streak-goal-input" placeholder="Set your daily goal" value="Daily Learning">
+                <button id="update-goal" class="btn btn-primary">
+                    <i class="fas fa-save"></i> Update Goal
+                </button>
+            </div>
+            <div class="streak-controls">
+                <button id="mark-done" class="btn btn-primary">
+                    <i class="fas fa-check"></i> Mark Today Complete
+                </button>
+                <button id="reset-streak" class="btn" style="background: var(--danger); color: white;">
+                    <i class="fas fa-redo"></i> Reset Streak
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let streak = parseInt(localStorage.getItem('appStreakCount') || '0');
+        let streakGoal = localStorage.getItem('appStreakGoal') || 'Daily Learning';
+        let lastStreakDate = localStorage.getItem('appLastStreakDate') || '';
+        const today = new Date().toDateString();
+        
+        document.getElementById('streak-display').textContent = streak;
+        document.getElementById('current-goal').textContent = streakGoal;
+        document.getElementById('streak-goal-input').value = streakGoal;
+        
+        if(lastStreakDate === today) {
+            document.getElementById('mark-done').disabled = true;
+            document.getElementById('mark-done').textContent = '✓ Already Marked Today';
+            document.getElementById('mark-done').style.opacity = '0.5';
+        }
+        
+        document.getElementById('update-goal').addEventListener('click', () => {
+            const newGoal = document.getElementById('streak-goal-input').value.trim();
+            if (newGoal) {
+                localStorage.setItem('appStreakGoal', newGoal);
+                document.getElementById('current-goal').textContent = newGoal;
+            }
+        });
+        
+        document.getElementById('mark-done').addEventListener('click', function() {
+            streak++;
+            localStorage.setItem('appStreakCount', streak);
+            localStorage.setItem('appLastStreakDate', today);
+            document.getElementById('streak-display').textContent = streak;
+            this.disabled = true;
+            this.textContent = '✓ Already Marked Today';
+            this.style.opacity = '0.5';
+        });
+        
+        document.getElementById('reset-streak').addEventListener('click', () => {
+            if (confirm('Are you sure you want to reset your streak?')) {
+                streak = 0;
+                localStorage.setItem('appStreakCount', '0');
+                localStorage.removeItem('appLastStreakDate');
+                document.getElementById('streak-display').textContent = '0';
+                document.getElementById('mark-done').disabled = false;
+                document.getElementById('mark-done').innerHTML = '<i class="fas fa-check"></i> Mark Today Complete';
+                document.getElementById('mark-done').style.opacity = '1';
+            }
+        });
+    </script>
+</body>
+</html>

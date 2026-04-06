@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guess Game | Prince Hammond</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../src/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></head>
+<body class="light">
+    <header class="glass header">
+        <nav class="navbar">
+            <div class="nav-logo">
+                <h3><a href="../index.html" style="text-decoration: none; color: inherit;">PH</a></h3>
+            </div>
+            <a href="../index.html#projects" class="btn btn-primary">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2 class="page-title fade-in">Guess The Number</h2>
+        <div class="game-container glass fade-in">
+            <h3 class="game-title"><i class="fas fa-dice"></i> Guess the Number</h3>
+            <p style="opacity: 0.8; margin-bottom: 1rem;">I'm thinking of a number between 1 and 100. Can you guess it?</p>
+            
+            <input type="number" id="guess-input" class="game-input" min="1" max="100" placeholder="1-100">
+            <div>
+                <button id="submit-guess" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Guess!
+                </button>
+                <button id="reset-game" class="btn" style="background: var(--warning); color: white;">
+                    <i class="fas fa-redo"></i> New Game
+                </button>
+            </div>
+            
+            <p id="game-result" class="result"></p>
+            <p>Attempts: <span id="attempts-count">0</span></p>
+            <div id="guess-history" style="margin-top: 1rem; max-height: 150px; overflow-y: auto;"></div>
+        </div>
+    </main>
+
+    <script>
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        let attempts = 0;
+        
+        const guessInput = document.getElementById('guess-input');
+        const submitBtn = document.getElementById('submit-guess');
+        const resultEl = document.getElementById('game-result');
+        const attemptsEl = document.getElementById('attempts-count');
+        const historyEl = document.getElementById('guess-history');
+        const resetBtn = document.getElementById('reset-game');
+        
+        function checkGuess() {
+            const guess = parseInt(guessInput.value);
+            
+            if (isNaN(guess) || guess < 1 || guess > 100) {
+                resultEl.textContent = 'Please enter a valid number between 1 and 100';
+                resultEl.className = 'result error';
+                return;
+            }
+            
+            attempts++;
+            attemptsEl.textContent = attempts;
+            
+            const historyItem = document.createElement('div');
+            historyItem.style.padding = '0.3rem';
+            historyItem.style.borderBottom = '1px solid rgba(255,255,255,0.1)';
+            
+            if (guess === randomNumber) {
+                resultEl.textContent = `🎉 Correct! You got it in ${attempts} attempts!`;
+                resultEl.className = 'result success';
+                submitBtn.disabled = true;
+                historyItem.textContent = `Attempt ${attempts}: ${guess} - Correct!`;
+                historyItem.style.color = 'var(--success)';
+            } else if (guess < randomNumber) {
+                resultEl.textContent = 'Too low! Try higher.';
+                resultEl.className = 'result error';
+                historyItem.textContent = `Attempt ${attempts}: ${guess} - Too low`;
+            } else {
+                resultEl.textContent = 'Too high! Try lower.';
+                resultEl.className = 'result error';
+                historyItem.textContent = `Attempt ${attempts}: ${guess} - Too high`;
+            }
+            
+            historyEl.prepend(historyItem);
+            guessInput.value = '';
+            guessInput.focus();
+        }
+        
+        submitBtn.addEventListener('click', checkGuess);
+        guessInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') checkGuess();
+        });
+        
+        resetBtn.addEventListener('click', () => {
+            randomNumber = Math.floor(Math.random() * 100) + 1;
+            attempts = 0;
+            attemptsEl.textContent = '0';
+            resultEl.textContent = '';
+            historyEl.innerHTML = '';
+            submitBtn.disabled = false;
+            guessInput.value = '';
+            guessInput.focus();
+        });
+    </script>
+</body>
+</html>
